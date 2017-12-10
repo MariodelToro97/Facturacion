@@ -93,6 +93,8 @@
             this.Boton_1TextBox = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.Visualizador)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eFacturDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eFacturDataSet)).BeginInit();
@@ -266,12 +268,14 @@
             this.todosLosVendedoresToolStripMenuItem.Name = "todosLosVendedoresToolStripMenuItem";
             this.todosLosVendedoresToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
             this.todosLosVendedoresToolStripMenuItem.Text = "Todos los Vendedores";
+            this.todosLosVendedoresToolStripMenuItem.Click += new System.EventHandler(this.todosLosVendedoresToolStripMenuItem_Click);
             // 
             // vendedorEspecíficoToolStripMenuItem
             // 
             this.vendedorEspecíficoToolStripMenuItem.Name = "vendedorEspecíficoToolStripMenuItem";
             this.vendedorEspecíficoToolStripMenuItem.Size = new System.Drawing.Size(219, 22);
             this.vendedorEspecíficoToolStripMenuItem.Text = "Vendedor Específico";
+            this.vendedorEspecíficoToolStripMenuItem.Click += new System.EventHandler(this.vendedorEspecíficoToolStripMenuItem_Click);
             // 
             // darDeAltaVendedorToolStripMenuItem
             // 
@@ -303,8 +307,9 @@
             // quincenalToolStripMenuItem
             // 
             this.quincenalToolStripMenuItem.Name = "quincenalToolStripMenuItem";
-            this.quincenalToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.quincenalToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.quincenalToolStripMenuItem.Text = "Quincenal";
+            this.quincenalToolStripMenuItem.Click += new System.EventHandler(this.quincenalToolStripMenuItem_Click);
             // 
             // mensualToolStripMenuItem
             // 
@@ -336,14 +341,16 @@
             // todosToolStripMenuItem
             // 
             this.todosToolStripMenuItem.Name = "todosToolStripMenuItem";
-            this.todosToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.todosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.todosToolStripMenuItem.Text = "Todos";
+            this.todosToolStripMenuItem.Click += new System.EventHandler(this.todosToolStripMenuItem_Click);
             // 
             // específicoToolStripMenuItem
             // 
             this.específicoToolStripMenuItem.Name = "específicoToolStripMenuItem";
-            this.específicoToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.específicoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.específicoToolStripMenuItem.Text = "Específico";
+            this.específicoToolStripMenuItem.Click += new System.EventHandler(this.específicoToolStripMenuItem_Click);
             // 
             // darDeAltaClienteToolStripMenuItem
             // 
@@ -390,12 +397,14 @@
             this.todosToolStripMenuItem1.Name = "todosToolStripMenuItem1";
             this.todosToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.todosToolStripMenuItem1.Text = "Todos";
+            this.todosToolStripMenuItem1.Click += new System.EventHandler(this.todosToolStripMenuItem1_Click);
             // 
             // específicoToolStripMenuItem1
             // 
             this.específicoToolStripMenuItem1.Name = "específicoToolStripMenuItem1";
             this.específicoToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.específicoToolStripMenuItem1.Text = "Específico";
+            this.específicoToolStripMenuItem1.Click += new System.EventHandler(this.específicoToolStripMenuItem1_Click);
             // 
             // darDeAltaProveedorToolStripMenuItem
             // 
@@ -619,12 +628,33 @@
             this.label3.TabIndex = 16;
             this.label3.Text = "label3";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 143);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(47, 18);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "label2";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(193, 143);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 26);
+            this.comboBox2.TabIndex = 18;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
+            this.comboBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBox2_KeyPress);
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(967, 693);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.Boton_1TextBox);
@@ -716,6 +746,8 @@
         private System.Windows.Forms.ToolStripMenuItem porClienteToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem modificarClienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem eliminarClienteToolStripMenuItem;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox comboBox2;
     }
 }
 

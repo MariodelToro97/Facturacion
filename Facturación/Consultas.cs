@@ -178,5 +178,82 @@ namespace Facturación
             connection.Close();
             return dataSet.Tables["Facturas"];
         }
+
+        public DataTable todosVendedores()
+        {
+            connection.Open();
+            SqlCommand command = new SqlCommand("Select * From Vendedor", connection);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+            dataSet = new DataSet();
+            dataAdapter.Fill(dataSet, "Vendedor");
+            connection.Close();
+            return dataSet.Tables["Vendedor"];
+        }
+
+        public DataTable vendedorEspecifico(String clave)
+        {
+            connection.Open();
+            SqlCommand command = new SqlCommand(String.Format("Select * From Vendedor Where clave = {0}", clave), connection);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+            dataSet = new DataSet();
+            dataAdapter.Fill(dataSet, "Vendedor");
+            connection.Close();
+            return dataSet.Tables["Vendedor"];
+        }
+
+        public DataTable todosClientes()
+        {
+            connection.Open();
+            SqlCommand command = new SqlCommand("Select * from Cliente", connection);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+            dataSet = new DataSet();
+            dataAdapter.Fill(dataSet, "Cliente");
+            connection.Close();
+            return dataSet.Tables["Cliente"];
+        }
+
+        public DataTable clienteEspecifico(String clave)
+        {
+            connection.Open();
+            SqlCommand command = new SqlCommand(String.Format("Select * From Cliente Where clave = {0}", clave), connection);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+            dataSet = new DataSet();
+            dataAdapter.Fill(dataSet, "Vendedor");
+            connection.Close();
+            return dataSet.Tables["Vendedor"];
+        }
+
+        public DataTable todosProveedores()
+        {
+            connection.Open();
+            SqlCommand command = new SqlCommand("Select * from Proveedores", connection);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+            dataSet = new DataSet();
+            dataAdapter.Fill(dataSet, "Proveedor");
+            connection.Close();
+            return dataSet.Tables["Proveedor"];
+        }
+
+        public DataTable proveedorEspecífico(String clave)
+        {
+            connection.Open();
+            SqlCommand command = new SqlCommand(String.Format("Select * from Proveedores Where Clave = {0}",clave), connection);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+            dataSet = new DataSet();
+            dataAdapter.Fill(dataSet, "Proveedor");
+            connection.Close();
+            return dataSet.Tables["Proveedor"];
+        }
+
+        public DataTable nominaQuincenal(String año, String quincena)
+        {
+            connection.Open();
+            SqlCommand command = new SqlCommand(String.Format("Select * from Proveedores Where Clave = {0}", clave), connection);
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+            dataSet = new DataSet();
+            dataAdapter.Fill(dataSet, "Nomina");
+            connection.Close();
+            return dataSet.Tables["Nomina"];
+        }
     }
 }
