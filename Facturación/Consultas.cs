@@ -72,7 +72,7 @@ namespace Facturación
         public DataTable facturasdelCliente(String cliente)
         {
             connection.Open();
-            SqlCommand command = new SqlCommand(String.Format("Select count(*) as 'Facturas del Cliente' From Factura Where claveCliente = {0}Group By claveCliente", cliente), connection);
+            SqlCommand command = new SqlCommand(String.Format("Select count(*) as 'Facturas del Cliente' From Factura Where claveCliente = {0} Group By claveCliente", cliente), connection);
             SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
             dataSet = new DataSet();
             dataAdapter.Fill(dataSet, "facturasCliente");

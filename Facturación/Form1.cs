@@ -36,34 +36,18 @@ namespace Facturación
             label1.Text = "";
             label2.Text = "";
             label3.Text = "";
-            label4.Text = "";
-            label5.Text = "";
-            label6.Text = "";
-            label7.Text = "";
-            label8.Text = "";
 
             label1.Visible = false;
             label2.Visible = false;
             label3.Visible = false;
-            label4.Visible = false;
-            label5.Visible = false;
-            label6.Visible = false;
-            label7.Visible = false;
-            label8.Visible = false;
 
             Visualizador.Visible = false;
 
             button28.Visible = false;
 
             textBox1.Visible = false;
-            textBox2.Visible = false;
-            textBox3.Visible = false;
-            textBox4.Visible = false;
-            textBox5.Visible = false;
             
             Boton_1TextBox.Visible = false;
-
-            dateTimePicker1.Visible = false;
 
             comboBox1.Visible = false;
             comboBox2.Visible = false;            
@@ -77,36 +61,16 @@ namespace Facturación
             label1.Text = "";
             label2.Text = "";
             label3.Text = "";
-            label4.Text = "";
-            label5.Text = "";
-            label6.Text = "";
-            label7.Text = "";
-            label8.Text = "";
 
             label1.Visible = false;
             label2.Visible = false;
             label3.Visible = false;
-            label4.Visible = false;
-            label5.Visible = false;
-            label6.Visible = false;
-            label7.Visible = false;
-            label8.Visible = false;
 
             textBox1.Visible = false;
-            textBox2.Visible = false;
-            textBox3.Visible = false;
-            textBox4.Visible = false;
-            textBox5.Visible = false;
             
             textBox1.Text = "";
-            textBox2.Text = "";
-            textBox3.Text = "";
-            textBox4.Text = "";
-            textBox5.Text = "";
 
             Boton_1TextBox.Visible = false;
-
-            dateTimePicker1.Visible = false;
             
             comboBox1.Visible = false;            
             comboBox2.Visible = false;
@@ -126,20 +90,10 @@ namespace Facturación
             label1.Text = "";
             label2.Text = "";
             label3.Text = "";
-            label4.Text = "";
-            label5.Text = "";
-            label6.Text = "";
-            label7.Text = "";
-            label8.Text = "";
 
             label1.Visible = true;
             label2.Visible = false;
             label3.Visible = false;
-            label4.Visible = false;
-            label5.Visible = false;
-            label6.Visible = false;
-            label7.Visible = false;
-            label8.Visible = false;
 
             textBox1.Visible = true;
             textBox1.Enabled = true;
@@ -155,7 +109,67 @@ namespace Facturación
             comboBox2.Items.Clear();
 
             Visualizador.Visible = false;
+
             button28.Visible = false;
+        }
+
+        public void unComboBox()
+        {
+            label1.Text = "";
+            label2.Text = "";
+            label3.Text = "";
+
+            label1.Visible = false;
+            label2.Visible = false;
+            label3.Visible = true;
+
+            comboBox1.Visible = true;
+            comboBox2.Visible = false;
+
+            comboBox1.Items.Clear();
+            comboBox2.Items.Clear();
+
+            Boton_1TextBox.Visible = true;
+            Boton_1TextBox.Enabled = false;
+
+            textBox1.Visible = false;
+
+            textBox1.Text = "";
+
+            Visualizador.Visible = false;
+
+            button28.Visible = false;
+        }
+
+        public void dosComboBox()
+        {
+            label1.Text = "";
+            label2.Text = "";
+            label3.Text = "";
+
+            label1.Visible = false;
+            label2.Visible = true;
+            label3.Visible = true;
+
+            textBox1.Visible = false;
+
+            textBox1.Text = "";
+
+            Visualizador.Visible = false;
+
+            button28.Visible = false;
+
+            Boton_1TextBox.Visible = true;
+            Boton_1TextBox.Enabled = false;
+
+            comboBox1.Visible = true;
+            comboBox2.Visible = true;
+
+            comboBox1.Enabled = true;
+            comboBox2.Enabled = true;
+
+            comboBox1.Items.Clear();
+            comboBox2.Items.Clear();
         }
 
         private void Principal_Load(object sender, EventArgs e)
@@ -272,40 +286,29 @@ namespace Facturación
         {
             Boton_1TextBox.Enabled = false;
             textBox1.Enabled = false;
-            
-            if (label1.Text == "Código del Vendedor")
-            {
-                try
-                {
-                    Visualizador.DataSource = consultas.facturasExpedidasVendedor(textBox1.Text);
-                    botonConsultar();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Ha ocurrio un error en la conexión" + ex.ToString());
-                }
 
-            } else
+            if (Boton_1TextBox.Text == "Consultar")
             {
-                if (label1.Text == "Código del Cliente")
+                if (label1.Text == "Código del Vendedor")
                 {
                     try
                     {
-                        Visualizador.DataSource = consultas.facturasdelCliente(textBox1.Text);
+                        Visualizador.DataSource = consultas.facturasExpedidasVendedor(textBox1.Text);
                         botonConsultar();
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show("Ha ocurrio un error en la conexión" + ex.ToString());
                     }
-                } else
+
+                }
+                else
                 {
-                    if (label3.Text == "Año")
+                    if (label1.Text == "Código del Cliente")
                     {
                         try
                         {
-                            Visualizador.DataSource = consultas.ventasMensualesPorAño(comboBox1.SelectedText);
-                            comboBox1.Enabled = false;
+                            Visualizador.DataSource = consultas.facturasdelCliente(textBox1.Text);
                             botonConsultar();
                         }
                         catch (Exception ex)
@@ -315,11 +318,11 @@ namespace Facturación
                     }
                     else
                     {
-                        if (label3.Text == "Año:" && label2.Text != "Número de Quincena:" && label2.Text != "Mes:")
+                        if (label3.Text == "Año")
                         {
                             try
                             {
-                                Visualizador.DataSource = consultas.ventasPorAñoCliente(comboBox1.SelectedText);
+                                Visualizador.DataSource = consultas.ventasMensualesPorAño(comboBox1.SelectedText);
                                 comboBox1.Enabled = false;
                                 botonConsultar();
                             }
@@ -330,11 +333,11 @@ namespace Facturación
                         }
                         else
                         {
-                            if (label3.Text == " Año:")
+                            if (label3.Text == "Año:" && label2.Text != "Número de Quincena:" && label2.Text != "Mes:")
                             {
                                 try
                                 {
-                                    Visualizador.DataSource = consultas.ventasPorAñoTotal(comboBox1.SelectedText);
+                                    Visualizador.DataSource = consultas.ventasPorAñoCliente(comboBox1.SelectedText);
                                     comboBox1.Enabled = false;
                                     botonConsultar();
                                 }
@@ -345,11 +348,11 @@ namespace Facturación
                             }
                             else
                             {
-                                if (label3.Text == " Año: ")
+                                if (label3.Text == " Año:")
                                 {
                                     try
                                     {
-                                        Visualizador.DataSource = consultas.ventasPorDepartamento(comboBox1.SelectedText);
+                                        Visualizador.DataSource = consultas.ventasPorAñoTotal(comboBox1.SelectedText);
                                         comboBox1.Enabled = false;
                                         botonConsultar();
                                     }
@@ -360,11 +363,12 @@ namespace Facturación
                                 }
                                 else
                                 {
-                                    if (label1.Text == "Código del Producto")
+                                    if (label3.Text == " Año: ")
                                     {
                                         try
                                         {
-                                            Visualizador.DataSource = consultas.productoEspecífico(textBox1.Text);
+                                            Visualizador.DataSource = consultas.ventasPorDepartamento(comboBox1.SelectedText);
+                                            comboBox1.Enabled = false;
                                             botonConsultar();
                                         }
                                         catch (Exception ex)
@@ -374,11 +378,11 @@ namespace Facturación
                                     }
                                     else
                                     {
-                                        if (label1.Text == "Folio de la Factura:")
+                                        if (label1.Text == "Código del Producto")
                                         {
                                             try
                                             {
-                                                Visualizador.DataSource = consultas.facturaEspecífica(textBox1.Text);
+                                                Visualizador.DataSource = consultas.productoEspecífico(textBox1.Text);
                                                 botonConsultar();
                                             }
                                             catch (Exception ex)
@@ -388,11 +392,11 @@ namespace Facturación
                                         }
                                         else
                                         {
-                                            if (label1.Text == "Clave del Vendedor:")
+                                            if (label1.Text == "Folio de la Factura:")
                                             {
                                                 try
                                                 {
-                                                    Visualizador.DataSource = consultas.vendedorEspecifico(textBox1.Text);
+                                                    Visualizador.DataSource = consultas.facturaEspecífica(textBox1.Text);
                                                     botonConsultar();
                                                 }
                                                 catch (Exception ex)
@@ -402,11 +406,11 @@ namespace Facturación
                                             }
                                             else
                                             {
-                                                if (label1.Text == "Clave del Cliente:")
+                                                if (label1.Text == "Clave del Vendedor:")
                                                 {
                                                     try
                                                     {
-                                                        Visualizador.DataSource = consultas.clienteEspecifico(textBox1.Text);
+                                                        Visualizador.DataSource = consultas.vendedorEspecifico(textBox1.Text);
                                                         botonConsultar();
                                                     }
                                                     catch (Exception ex)
@@ -416,11 +420,11 @@ namespace Facturación
                                                 }
                                                 else
                                                 {
-                                                    if (label1.Text == "Clave del Proveedor:")
+                                                    if (label1.Text == "Clave del Cliente:")
                                                     {
                                                         try
                                                         {
-                                                            Visualizador.DataSource = consultas.proveedorEspecífico(textBox1.Text);
+                                                            Visualizador.DataSource = consultas.clienteEspecifico(textBox1.Text);
                                                             botonConsultar();
                                                         }
                                                         catch (Exception ex)
@@ -430,18 +434,11 @@ namespace Facturación
                                                     }
                                                     else
                                                     {
-                                                        if (label3.Text == "Año:" && label2.Text == "Número de Quincena:")
+                                                        if (label1.Text == "Clave del Proveedor:")
                                                         {
-                                                            int a, b;
-
-                                                            a = int.Parse(comboBox1.SelectedItem.ToString());
-                                                            b = int.Parse(comboBox2.SelectedItem.ToString());
-
                                                             try
                                                             {
-                                                                Visualizador.DataSource = consultas.nominaQuincenal(a, b);
-                                                                comboBox1.Enabled = false;
-                                                                comboBox2.Enabled = false;
+                                                                Visualizador.DataSource = consultas.proveedorEspecífico(textBox1.Text);
                                                                 botonConsultar();
                                                             }
                                                             catch (Exception ex)
@@ -451,11 +448,16 @@ namespace Facturación
                                                         }
                                                         else
                                                         {
-                                                            if (label3.Text == "Año:" && label2.Text == "Mes:")
+                                                            if (label3.Text == "Año:" && label2.Text == "Número de Quincena:")
                                                             {
+                                                                int a, b;
+
+                                                                a = int.Parse(comboBox1.SelectedItem.ToString());
+                                                                b = int.Parse(comboBox2.SelectedItem.ToString());
+
                                                                 try
                                                                 {
-                                                                    Visualizador.DataSource = consultas.nominaMensual(int.Parse(comboBox1.SelectedItem.ToString()), (comboBox2.SelectedIndex + 1));
+                                                                    Visualizador.DataSource = consultas.nominaQuincenal(a, b);
                                                                     comboBox1.Enabled = false;
                                                                     comboBox2.Enabled = false;
                                                                     botonConsultar();
@@ -463,6 +465,23 @@ namespace Facturación
                                                                 catch (Exception ex)
                                                                 {
                                                                     MessageBox.Show("Ha ocurrio un error en la conexión" + ex.ToString());
+                                                                }
+                                                            }
+                                                            else
+                                                            {
+                                                                if (label3.Text == "Año:" && label2.Text == "Mes:")
+                                                                {
+                                                                    try
+                                                                    {
+                                                                        Visualizador.DataSource = consultas.nominaMensual(int.Parse(comboBox1.SelectedItem.ToString()), (comboBox2.SelectedIndex + 1));
+                                                                        comboBox1.Enabled = false;
+                                                                        comboBox2.Enabled = false;
+                                                                        botonConsultar();
+                                                                    }
+                                                                    catch (Exception ex)
+                                                                    {
+                                                                        MessageBox.Show("Ha ocurrio un error en la conexión" + ex.ToString());
+                                                                    }
                                                                 }
                                                             }
                                                         }
@@ -477,6 +496,15 @@ namespace Facturación
                     }
                 }
             }
+            else
+            {
+                if (Boton_1TextBox.Text == "")
+                {
+
+                }
+            }
+            
+            
             button28.Focus();
         }
 
@@ -490,25 +518,7 @@ namespace Facturación
 
         private void ventasMensualesPorAñoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            label1.Text = "";
-            label2.Text = "";
-            label3.Text = "";
-
-            label1.Visible = false;
-            textBox1.Visible = false;
-            
-            label3.Visible = true;
-            comboBox1.Visible = true;
-
-            Boton_1TextBox.Visible = true;
-            Boton_1TextBox.Enabled = false;
-            comboBox1.Enabled = true;
-
-            Visualizador.Visible = false;
-            button28.Visible = false;
-
-            label2.Visible = false;
-            comboBox2.Visible = false;
+            unComboBox();
 
             label3.Text = "Año";
             comboBox1.Items.Clear();
@@ -538,25 +548,7 @@ namespace Facturación
 
         private void porClienteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            label1.Text = "";
-            label2.Text = "";
-            label3.Text = "";
-
-            label1.Visible = false;
-            textBox1.Visible = false;
-
-            label3.Visible = true;
-            comboBox1.Visible = true;
-
-            Boton_1TextBox.Visible = true;
-            Boton_1TextBox.Enabled = false;
-            comboBox1.Enabled = true;
-
-            Visualizador.Visible = false;
-            button28.Visible = false;
-
-            label2.Visible = false;
-            comboBox2.Visible = false;
+            unComboBox();
 
             label3.Text = "Año:";
             comboBox1.Items.Clear();
@@ -567,25 +559,7 @@ namespace Facturación
 
         private void generalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            label1.Text = "";
-            label2.Text = "";
-            label3.Text = "";
-
-            label1.Visible = false;
-            textBox1.Visible = false;
-
-            label3.Visible = true;
-            comboBox1.Visible = true;
-
-            Boton_1TextBox.Visible = true;
-            Boton_1TextBox.Enabled = false;
-            comboBox1.Enabled = true;
-
-            Visualizador.Visible = false;
-            button28.Visible = false;
-
-            label2.Visible = false;
-            comboBox2.Visible = false;
+            unComboBox();
 
             label3.Text = " Año:";
             comboBox1.Items.Clear();
@@ -596,25 +570,7 @@ namespace Facturación
 
         private void ventasPorDepartamentoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            label1.Text = "";
-            label2.Text = "";
-            label3.Text = "";
-
-            label1.Visible = false;
-            textBox1.Visible = false;
-
-            label3.Visible = true;
-            comboBox1.Visible = true;
-
-            Boton_1TextBox.Visible = true;
-            Boton_1TextBox.Enabled = false;
-            comboBox1.Enabled = true;
-
-            Visualizador.Visible = false;
-            button28.Visible = false;
-
-            label2.Visible = false;
-            comboBox2.Visible = false;
+            unComboBox();
 
             label3.Text = " Año: ";
             comboBox1.Items.Clear();
@@ -742,25 +698,7 @@ namespace Facturación
 
         private void quincenalToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            label1.Text = "";
-            label2.Text = "";
-            label3.Text = "";
-
-            label2.Visible = true;
-            comboBox2.Visible = true;
-            label3.Visible = true;
-            comboBox1.Visible = true;
-
-            label1.Visible = false;
-            textBox1.Visible = false;
-
-            Boton_1TextBox.Visible = true;
-            Boton_1TextBox.Enabled = false;
-            comboBox1.Enabled = true;
-            comboBox2.Enabled = true;
-
-            Visualizador.Visible = false;
-            button28.Visible = false;
+            dosComboBox();
 
             label3.Text = "Año:";
             comboBox1.Items.Clear();
@@ -799,34 +737,15 @@ namespace Facturación
 
         private void mensualToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            label1.Text = "";
-            label2.Text = "";
-            label3.Text = "";
-
-            label2.Visible = true;
-            comboBox2.Visible = true;
-            label3.Visible = true;
-            comboBox1.Visible = true;
-
-            label1.Visible = false;
-            textBox1.Visible = false;
-
-            Boton_1TextBox.Visible = true;
-            Boton_1TextBox.Enabled = false;
-            comboBox1.Enabled = true;
-            comboBox2.Enabled = true;
-
-            Visualizador.Visible = false;
-            button28.Visible = false;
+            dosComboBox();
 
             label3.Text = "Año:";
-            comboBox1.Items.Clear();
+            
             comboBox1.Items.Add("2015");
             comboBox1.Items.Add("2016");
             comboBox1.Items.Add("2017");
 
-            label2.Text = "Mes:";
-            comboBox2.Items.Clear();
+            label2.Text = "Mes:";            
 
             comboBox2.Items.Add("Enero");
             comboBox2.Items.Add("Febrero");
