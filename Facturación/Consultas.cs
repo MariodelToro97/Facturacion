@@ -245,10 +245,31 @@ namespace Facturación
             return dataSet.Tables["Proveedor"];
         }
 
-        public DataTable nominaQuincenal(String año, String quincena)
+        public DataTable nominaQuincenal(int año, int quincena)
         {
             connection.Open();
-            SqlCommand command = new SqlCommand(String.Format("Select * from Proveedores Where Clave = {0}", clave), connection);
+            SqlCommand command = new SqlCommand("nominaQuincenal", connection);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@Quincena", SqlDbType.Int).Value = quincena;
+            command.Parameters.Add("@Año", SqlDbType.Int).Value = año;
+            command.ExecuteNonQuery();
+
+            SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+            dataSet = new DataSet();
+            dataAdapter.Fill(dataSet, "Nomina");
+            connection.Close();
+            return dataSet.Tables["Nomina"];
+        }
+
+        public DataTable nominaMensual(int año, int Mes)
+        {
+            connection.Open();
+            SqlCommand command = new SqlCommand("nominaMensual2", connection);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@Año", SqlDbType.Int).Value = año;
+            command.Parameters.Add("@Mes", SqlDbType.Int).Value = Mes;
+            command.ExecuteNonQuery();
+
             SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
             dataSet = new DataSet();
             dataAdapter.Fill(dataSet, "Nomina");

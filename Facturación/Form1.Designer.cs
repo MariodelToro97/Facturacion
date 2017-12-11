@@ -95,6 +95,16 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Visualizador)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eFacturDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.eFacturDataSet)).BeginInit();
@@ -207,14 +217,14 @@
             // todasToolStripMenuItem
             // 
             this.todasToolStripMenuItem.Name = "todasToolStripMenuItem";
-            this.todasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.todasToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.todasToolStripMenuItem.Text = "Todas";
             this.todasToolStripMenuItem.Click += new System.EventHandler(this.todasToolStripMenuItem_Click);
             // 
             // específicaToolStripMenuItem
             // 
             this.específicaToolStripMenuItem.Name = "específicaToolStripMenuItem";
-            this.específicaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.específicaToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.específicaToolStripMenuItem.Text = "Específica";
             this.específicaToolStripMenuItem.Click += new System.EventHandler(this.específicaToolStripMenuItem_Click);
             // 
@@ -307,15 +317,16 @@
             // quincenalToolStripMenuItem
             // 
             this.quincenalToolStripMenuItem.Name = "quincenalToolStripMenuItem";
-            this.quincenalToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.quincenalToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.quincenalToolStripMenuItem.Text = "Quincenal";
             this.quincenalToolStripMenuItem.Click += new System.EventHandler(this.quincenalToolStripMenuItem_Click);
             // 
             // mensualToolStripMenuItem
             // 
             this.mensualToolStripMenuItem.Name = "mensualToolStripMenuItem";
-            this.mensualToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
+            this.mensualToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.mensualToolStripMenuItem.Text = "Mensual";
+            this.mensualToolStripMenuItem.Click += new System.EventHandler(this.mensualToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
             // 
@@ -341,14 +352,14 @@
             // todosToolStripMenuItem
             // 
             this.todosToolStripMenuItem.Name = "todosToolStripMenuItem";
-            this.todosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.todosToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.todosToolStripMenuItem.Text = "Todos";
             this.todosToolStripMenuItem.Click += new System.EventHandler(this.todosToolStripMenuItem_Click);
             // 
             // específicoToolStripMenuItem
             // 
             this.específicoToolStripMenuItem.Name = "específicoToolStripMenuItem";
-            this.específicoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.específicoToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
             this.específicoToolStripMenuItem.Text = "Específico";
             this.específicoToolStripMenuItem.Click += new System.EventHandler(this.específicoToolStripMenuItem_Click);
             // 
@@ -395,14 +406,14 @@
             // todosToolStripMenuItem1
             // 
             this.todosToolStripMenuItem1.Name = "todosToolStripMenuItem1";
-            this.todosToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.todosToolStripMenuItem1.Size = new System.Drawing.Size(139, 22);
             this.todosToolStripMenuItem1.Text = "Todos";
             this.todosToolStripMenuItem1.Click += new System.EventHandler(this.todosToolStripMenuItem1_Click);
             // 
             // específicoToolStripMenuItem1
             // 
             this.específicoToolStripMenuItem1.Name = "específicoToolStripMenuItem1";
-            this.específicoToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.específicoToolStripMenuItem1.Size = new System.Drawing.Size(139, 22);
             this.específicoToolStripMenuItem1.Text = "Específico";
             this.específicoToolStripMenuItem1.Click += new System.EventHandler(this.específicoToolStripMenuItem1_Click);
             // 
@@ -454,14 +465,14 @@
             // todosToolStripMenuItem2
             // 
             this.todosToolStripMenuItem2.Name = "todosToolStripMenuItem2";
-            this.todosToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.todosToolStripMenuItem2.Size = new System.Drawing.Size(139, 22);
             this.todosToolStripMenuItem2.Text = "Todos";
             this.todosToolStripMenuItem2.Click += new System.EventHandler(this.todosToolStripMenuItem2_Click);
             // 
             // específicoToolStripMenuItem2
             // 
             this.específicoToolStripMenuItem2.Name = "específicoToolStripMenuItem2";
-            this.específicoToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.específicoToolStripMenuItem2.Size = new System.Drawing.Size(139, 22);
             this.específicoToolStripMenuItem2.Text = "Específico";
             this.específicoToolStripMenuItem2.Click += new System.EventHandler(this.específicoToolStripMenuItem2_Click);
             // 
@@ -500,7 +511,7 @@
             this.productosPorDepartamentoToolStripMenuItem,
             this.productosNoVendidosToolStripMenuItem});
             this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            this.productosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.productosToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.productosToolStripMenuItem.Text = "Productos";
             // 
             // productosBajosToolStripMenuItem
@@ -532,7 +543,7 @@
             this.ventasPorAñoToolStripMenuItem,
             this.ventasPorDepartamentoToolStripMenuItem});
             this.ventasToolStripMenuItem.Name = "ventasToolStripMenuItem";
-            this.ventasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.ventasToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.ventasToolStripMenuItem.Text = "Ventas";
             // 
             // númeroDeVentasTotalesToolStripMenuItem
@@ -612,7 +623,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(193, 88);
+            this.comboBox1.Location = new System.Drawing.Point(193, 133);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 26);
             this.comboBox1.TabIndex = 14;
@@ -622,7 +633,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 88);
+            this.label3.Location = new System.Drawing.Point(12, 133);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(47, 18);
             this.label3.TabIndex = 16;
@@ -631,7 +642,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 143);
+            this.label2.Location = new System.Drawing.Point(12, 189);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(47, 18);
             this.label2.TabIndex = 17;
@@ -640,12 +651,92 @@
             // comboBox2
             // 
             this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(193, 143);
+            this.comboBox2.Location = new System.Drawing.Point(193, 189);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(121, 26);
             this.comboBox2.TabIndex = 18;
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             this.comboBox2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.comboBox2_KeyPress);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 89);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(47, 18);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "label4";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(193, 86);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(109, 25);
+            this.textBox2.TabIndex = 21;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(514, 86);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(175, 25);
+            this.textBox3.TabIndex = 22;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(360, 89);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 18);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "label5";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(360, 136);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 18);
+            this.label6.TabIndex = 24;
+            this.label6.Text = "label6";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(503, 131);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 25);
+            this.dateTimePicker1.TabIndex = 25;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(360, 197);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(47, 18);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "label7";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(514, 189);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(121, 25);
+            this.textBox4.TabIndex = 27;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(833, 186);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(121, 25);
+            this.textBox5.TabIndex = 29;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(679, 194);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(47, 18);
+            this.label8.TabIndex = 28;
+            this.label8.Text = "label8";
             // 
             // Principal
             // 
@@ -653,6 +744,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Honeydew;
             this.ClientSize = new System.Drawing.Size(967, 693);
+            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
@@ -748,6 +849,16 @@
         private System.Windows.Forms.ToolStripMenuItem eliminarClienteToolStripMenuItem;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label8;
     }
 }
 
