@@ -276,5 +276,103 @@ namespace Facturación
             connection.Close();
             return dataSet.Tables["Nomina"];
         }
+
+        public bool eliminarVendedor(String clave)
+        {
+            connection.Open();
+            SqlCommand command = new SqlCommand(String.Format("Delete From Vendedor Where Clave = {0}", clave), connection);
+            int filasafectadas = command.ExecuteNonQuery();
+            connection.Close();
+            if (filasafectadas > 0) return true;
+            else return false;
+        }
+
+        public bool eliminarCliente(String clave)
+        {
+            connection.Open();
+            SqlCommand command = new SqlCommand(String.Format("Delete From Cliente Where Clave = {0}", clave), connection);
+            int filasafectadas = command.ExecuteNonQuery();
+            connection.Close();
+            if (filasafectadas > 0) return true;
+            else return false;
+        }
+
+        public bool eliminarProveedor(String clave)
+        {
+            connection.Open();
+            SqlCommand command = new SqlCommand(String.Format("Delete From Proveedores Where Clave = {0}", clave), connection);
+            int filasafectadas = command.ExecuteNonQuery();
+            connection.Close();
+            if (filasafectadas > 0) return true;
+            else return false;
+        }
+
+        public bool eliminarProducto(String clave)
+        {
+            connection.Open();
+            SqlCommand command = new SqlCommand(String.Format("Delete From Producto Where codigo = {0}", clave), connection);
+            int filasafectadas = command.ExecuteNonQuery();
+            connection.Close();
+            if (filasafectadas > 0) return true;
+            else return false;
+        }
+
+        public bool insertarVendedor(String rfc, String nombre, String sexo, String fecha, String sueldo, String comision)
+        {
+            connection.Open();
+            SqlCommand command = new SqlCommand(String.Format("insert into Vendedor values ('{0}', '{1}', '{2}', '{3}', '{4}', '{5}')", new String[] { rfc, nombre, sexo, fecha, sueldo, comision}), connection);
+            int filasafectadas = command.ExecuteNonQuery();
+            connection.Close();
+            if (filasafectadas > 0) return true;
+            else return false;
+        }
+
+        public bool actualizarVendedor(String rfc, String nombre, String sexo, String fecha, String sueldo, String comision, String clave)
+        {
+            connection.Open();
+            SqlCommand command = new SqlCommand("actualizarVendedor", connection);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@clave", SqlDbType.Int).Value = clave;
+            command.Parameters.Add("@rfc", SqlDbType.VarChar).Value = rfc;
+            command.Parameters.Add("@nombre", SqlDbType.VarChar).Value = nombre;
+            command.Parameters.Add("@sexo", SqlDbType.Char).Value = sexo;
+            command.Parameters.Add("@fecha", SqlDbType.Date).Value = fecha;
+            command.Parameters.Add("@sueldoBase", SqlDbType.Money).Value = sueldo;
+            command.Parameters.Add("@comision", SqlDbType.Decimal).Value = comision;
+            int filasafectadas = command.ExecuteNonQuery();            
+            connection.Close();
+            if (filasafectadas > 0) return true;
+            else return false;
+        }
+
+        public bool insertarFactura(String formaPago, int claveVendedor, int claveCliente)
+        {
+            connection.Open();
+            SqlCommand command = new SqlCommand("registrarFactura", connection);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@formaPago", SqlDbType.VarChar).Value = formaPago;
+            command.Parameters.Add("@claveCliente", SqlDbType.Int).Value = claveCliente;
+            command.Parameters.Add("@claveVendedor", SqlDbType.Int).Value = claveVendedor;
+            int filasafectadas = command.ExecuteNonQuery();
+                        
+            connection.Close();
+            if (filasafectadas > 0) return true;
+            else return false;
+        }
+
+        public bool registrarDetalle(int folio, int codigoProducto, int cantidad)
+        {
+            connection.Open();
+            SqlCommand command = new SqlCommand("registrarDetalle", connection);
+            command.CommandType = CommandType.StoredProcedure;
+            command.Parameters.Add("@folioFactura", SqlDbType.Int).Value = folio;
+            command.Parameters.Add("@codigoProducto", SqlDbType.Int).Value = codigoProducto;
+            command.Parameters.Add("@cantidad", SqlDbType.Int).Value = cantidad;
+            int filasafectadas = command.ExecuteNonQuery();
+
+            connection.Close();
+            if (filasafectadas > 0) return true;
+            else return false;
+        }
     }
 }

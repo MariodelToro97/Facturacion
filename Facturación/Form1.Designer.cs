@@ -66,9 +66,7 @@
             this.todosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.específicoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.darDeAltaProveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.darDeAltaProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarPrecioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modificarProveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarProveedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.verProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.todosToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -194,6 +192,7 @@
             this.realizarFacturaToolStripMenuItem.Name = "realizarFacturaToolStripMenuItem";
             this.realizarFacturaToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.realizarFacturaToolStripMenuItem.Text = "Realizar Factura";
+            this.realizarFacturaToolStripMenuItem.Click += new System.EventHandler(this.realizarFacturaToolStripMenuItem_Click);
             // 
             // verTodasLasFacturasToolStripMenuItem
             // 
@@ -282,18 +281,21 @@
             this.darDeAltaVendedorToolStripMenuItem.Name = "darDeAltaVendedorToolStripMenuItem";
             this.darDeAltaVendedorToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.darDeAltaVendedorToolStripMenuItem.Text = "Dar de alta Vendedor";
+            this.darDeAltaVendedorToolStripMenuItem.Click += new System.EventHandler(this.darDeAltaVendedorToolStripMenuItem_Click);
             // 
             // eliminarVendedorToolStripMenuItem
             // 
             this.eliminarVendedorToolStripMenuItem.Name = "eliminarVendedorToolStripMenuItem";
             this.eliminarVendedorToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.eliminarVendedorToolStripMenuItem.Text = "Eliminar Vendedor";
+            this.eliminarVendedorToolStripMenuItem.Click += new System.EventHandler(this.eliminarVendedorToolStripMenuItem_Click);
             // 
             // modificarVendedorToolStripMenuItem
             // 
             this.modificarVendedorToolStripMenuItem.Name = "modificarVendedorToolStripMenuItem";
             this.modificarVendedorToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.modificarVendedorToolStripMenuItem.Text = "Modificar Vendedor";
+            this.modificarVendedorToolStripMenuItem.Click += new System.EventHandler(this.modificarVendedorToolStripMenuItem_Click);
             // 
             // consultarNóminaToolStripMenuItem
             // 
@@ -370,15 +372,14 @@
             this.eliminarClienteToolStripMenuItem.Name = "eliminarClienteToolStripMenuItem";
             this.eliminarClienteToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.eliminarClienteToolStripMenuItem.Text = "Eliminar cliente";
+            this.eliminarClienteToolStripMenuItem.Click += new System.EventHandler(this.eliminarClienteToolStripMenuItem_Click);
             // 
             // proveedoresToolStripMenuItem
             // 
             this.proveedoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.verProveedoresToolStripMenuItem,
             this.darDeAltaProveedorToolStripMenuItem,
-            this.darDeAltaProductosToolStripMenuItem,
-            this.modificarPrecioToolStripMenuItem,
-            this.modificarProveedorToolStripMenuItem});
+            this.eliminarProveedorToolStripMenuItem});
             this.proveedoresToolStripMenuItem.Font = new System.Drawing.Font("Maiandra GD", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
             this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(99, 22);
@@ -390,7 +391,7 @@
             this.todosToolStripMenuItem1,
             this.específicoToolStripMenuItem1});
             this.verProveedoresToolStripMenuItem.Name = "verProveedoresToolStripMenuItem";
-            this.verProveedoresToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
+            this.verProveedoresToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.verProveedoresToolStripMenuItem.Text = "Ver Proveedores";
             // 
             // todosToolStripMenuItem1
@@ -410,26 +411,16 @@
             // darDeAltaProveedorToolStripMenuItem
             // 
             this.darDeAltaProveedorToolStripMenuItem.Name = "darDeAltaProveedorToolStripMenuItem";
-            this.darDeAltaProveedorToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
+            this.darDeAltaProveedorToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.darDeAltaProveedorToolStripMenuItem.Text = "Dar de alta Proveedor";
+            this.darDeAltaProveedorToolStripMenuItem.Click += new System.EventHandler(this.darDeAltaProveedorToolStripMenuItem_Click);
             // 
-            // darDeAltaProductosToolStripMenuItem
+            // eliminarProveedorToolStripMenuItem
             // 
-            this.darDeAltaProductosToolStripMenuItem.Name = "darDeAltaProductosToolStripMenuItem";
-            this.darDeAltaProductosToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
-            this.darDeAltaProductosToolStripMenuItem.Text = "Dar de Alta Productos";
-            // 
-            // modificarPrecioToolStripMenuItem
-            // 
-            this.modificarPrecioToolStripMenuItem.Name = "modificarPrecioToolStripMenuItem";
-            this.modificarPrecioToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
-            this.modificarPrecioToolStripMenuItem.Text = "Modificar Precio Producto";
-            // 
-            // modificarProveedorToolStripMenuItem
-            // 
-            this.modificarProveedorToolStripMenuItem.Name = "modificarProveedorToolStripMenuItem";
-            this.modificarProveedorToolStripMenuItem.Size = new System.Drawing.Size(245, 22);
-            this.modificarProveedorToolStripMenuItem.Text = "Modificar Proveedor";
+            this.eliminarProveedorToolStripMenuItem.Name = "eliminarProveedorToolStripMenuItem";
+            this.eliminarProveedorToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.eliminarProveedorToolStripMenuItem.Text = "Eliminar Proveedor";
+            this.eliminarProveedorToolStripMenuItem.Click += new System.EventHandler(this.eliminarProveedorToolStripMenuItem_Click);
             // 
             // productosToolStripMenuItem1
             // 
@@ -483,6 +474,7 @@
             this.eliminarProductoToolStripMenuItem.Name = "eliminarProductoToolStripMenuItem";
             this.eliminarProductoToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.eliminarProductoToolStripMenuItem.Text = "Eliminar Producto";
+            this.eliminarProductoToolStripMenuItem.Click += new System.EventHandler(this.eliminarProductoToolStripMenuItem_Click);
             // 
             // consultasToolStripMenuItem
             // 
@@ -725,9 +717,6 @@
         private System.Windows.Forms.ToolStripMenuItem todosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem específicoToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem darDeAltaProveedorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem darDeAltaProductosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modificarPrecioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modificarProveedorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem verProductosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem todosToolStripMenuItem2;
@@ -749,6 +738,7 @@
         private System.Windows.Forms.ToolStripMenuItem eliminarClienteToolStripMenuItem;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ToolStripMenuItem eliminarProveedorToolStripMenuItem;
     }
 }
 

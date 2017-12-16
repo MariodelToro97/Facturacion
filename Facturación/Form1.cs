@@ -28,6 +28,7 @@ namespace Facturación
         {
             Form acerca = new Acerca_de();
             acerca.Show();
+
             this.Hide();
         }
 
@@ -498,9 +499,97 @@ namespace Facturación
             }
             else
             {
-                if (Boton_1TextBox.Text == "")
+                if (Boton_1TextBox.Text == "Eliminar")
                 {
-
+                    if (label1.Text == "Clave del Vendedor:")
+                    {
+                        try
+                        {
+                            if (consultas.eliminarVendedor(textBox1.Text))
+                            {
+                                MessageBox.Show("Vendedor eliminado correctamente");
+                                Visualizador.DataSource = consultas.todosVendedores();
+                                botonConsultar();
+                            }
+                            else
+                            {
+                                MessageBox.Show("No se ha podido eliminar correctamente");
+                            }                    
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show("Ha ocurrio un error en la conexión" + ex.ToString());
+                        }
+                    }
+                    else
+                    {
+                        if (label1.Text == "Clave del Cliente:")
+                        {
+                            try
+                            {
+                                if (consultas.eliminarCliente(textBox1.Text))
+                                {
+                                    MessageBox.Show("Cliente eliminado correctamente");
+                                    Visualizador.DataSource = consultas.todosClientes();
+                                    botonConsultar();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("No se ha podido eliminar correctamente");
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show("Ha ocurrio un error en la conexión" + ex.ToString());
+                            }
+                        }
+                        else
+                        {
+                            if (label1.Text == "Clave del Proveedor:")
+                            {
+                                try
+                                {
+                                    if (consultas.eliminarProveedor(textBox1.Text))
+                                    {
+                                        MessageBox.Show("Proveedor eliminado correctamente");
+                                        Visualizador.DataSource = consultas.todosProveedores();
+                                        botonConsultar();
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("No se ha podido eliminar correctamente");
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show("Ha ocurrio un error en la conexión" + ex.ToString());
+                                }
+                            }
+                            else
+                            {
+                                if (label1.Text == "Clave del Producto:")
+                                {
+                                    try
+                                    {
+                                        if (consultas.eliminarProveedor(textBox1.Text))
+                                        {
+                                            MessageBox.Show("Producto eliminado correctamente");
+                                            Visualizador.DataSource = consultas.todosProductos();
+                                            botonConsultar();
+                                        }
+                                        else
+                                        {
+                                            MessageBox.Show("No se ha podido eliminar correctamente");
+                                        }
+                                    }
+                                    catch (Exception ex)
+                                    {
+                                        MessageBox.Show("Ha ocurrio un error en la conexión" + ex.ToString());
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
             
@@ -759,6 +848,74 @@ namespace Facturación
             comboBox2.Items.Add("Octubre");
             comboBox2.Items.Add("Noviembre");
             comboBox2.Items.Add("Diciembre");
+        }
+
+        private void eliminarVendedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            unTextBox();
+
+            label1.Text = "Clave del Vendedor:";
+            Boton_1TextBox.Text = "Eliminar";
+        }
+
+        private void eliminarClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            unTextBox();
+            label1.Text = "Clave del Cliente:";
+            Boton_1TextBox.Text = "Eliminar";
+        }
+
+        private void eliminarProveedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            unTextBox();
+            label1.Text = "Clave del Proveedor:";
+            Boton_1TextBox.Text = "Eliminar";
+        }
+
+        private void eliminarProductoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            unTextBox();
+            label1.Text = "Clave del Producto:";
+            Boton_1TextBox.Text = "Eliminar";
+        }
+
+        Vendedores vender = new Vendedores();
+        Form vendedor = new Vendedores();
+
+        private void darDeAltaVendedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            vender.inicioInsertar();
+           
+            vendedor.Show();
+            this.Hide();
+        }
+
+        private void modificarVendedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            vender.inicioModificar();
+            vendedor.Show();
+            this.Hide();
+           
+        }
+
+        private void realizarFacturaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form factura = new Factura();
+
+            factura.Show();
+            this.Hide();
+        }
+
+        private void darDeAltaProveedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form form = new Proveedores();
+
+            Proveedores prove = new Proveedores();
+
+            prove.ingresarinsertar();
+
+            form.Show();
+            this.Hide();
         }
     }
 }
